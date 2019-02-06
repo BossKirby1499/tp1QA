@@ -2,8 +2,8 @@ package TP1P2;
 
 public class Produit {
 	private String nom;
-	private int prix;
-	private double qte;
+	private double prix;
+	private int qte;
 
 	public Produit() {
 
@@ -19,11 +19,11 @@ public class Produit {
 		return this.nom;
 	}
 
-	public int getPrix() {
+	public double getPrix() {
 		return this.getPrix();
 	}
 
-	public double getQte() {
+	public int getQte() {
 		return this.getQte();
 	}
 
@@ -31,11 +31,11 @@ public class Produit {
 		this.nom = nom;
 	}
 
-	public void setPrix(int prix) {
+	public void setPrix(double prix) {
 		this.prix = prix;
 	}
 
-	public void setQte(double qte) {
+	public void setQte(int qte) {
 		this.qte = qte;
 	}
 }

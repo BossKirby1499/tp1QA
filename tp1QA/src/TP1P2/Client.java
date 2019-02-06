@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Client {
 	private String nom;
-	private ArrayList<Produit> listeProduit = new ArrayList<>();
+	ArrayList<Produit> listeProduit = new ArrayList<>();
 
 	public Client() {
 
@@ -33,6 +33,10 @@ public class Client {
 			total += produits[i].getPrix()*produits[i].getQte();
 		}
 		System.out.println(this.nom+" "+total+"$ ");
+	}
+	public String getNom(){
+		
+		return this.nom;
 	}
 
 }

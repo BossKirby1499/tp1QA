@@ -9,7 +9,7 @@ public class Produit {
 
 	}
 
-	public Produit(String nom, int prix) {
+	public Produit(String nom, double prix) {
 		this.nom = nom;
 		this.prix = prix;
 		this.qte = 0;
@@ -20,11 +20,11 @@ public class Produit {
 	}
 
 	public double getPrix() {
-		return this.getPrix();
+		return this.prix;
 	}
 
 	public int getQte() {
-		return this.getQte();
+		return this.qte;
 	}
 
 	public void setNom(String nom) {

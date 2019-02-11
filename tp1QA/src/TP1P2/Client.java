@@ -1,10 +1,11 @@
 package TP1P2;
 
+import java.beans.PropertyDescriptor;
 import java.util.ArrayList;
 
 public class Client {
 	private String nom;
-	ArrayList<Produit> listeProduit = new ArrayList<>();
+	ArrayList<Produit> listeProduit;
 
 	public Client() {
 
@@ -12,23 +13,23 @@ public class Client {
 
 	public Client(String nom) {
 		this.nom = nom;
-
+		listeProduit = new ArrayList<>();
 	}
 
-	public void ajouterProduits(ArrayList<Produit> listeProduit) {
+	public void ajouterProduit(Produit produit) {
 
-		this.listeProduit = listeProduit;
+		this.listeProduit.add(produit);
 	}
 
 	public void calculerPrix() {
 		
-		double total;
+		double total = 0;
 		
 		Produit[] produits = new Produit[listeProduit.size()];
 		
 		produits = listeProduit.toArray(produits);
 		
-		for(int i = 0; i < produits.length(); i++) {
+		for(int i = 0; i < produits.length; i++) {
 			
 			total += produits[i].getPrix()*produits[i].getQte();
 		}

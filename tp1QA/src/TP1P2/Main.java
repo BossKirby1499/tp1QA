@@ -10,10 +10,11 @@ import outilsjava.OutilsLecture;
 public class Main {
 
 	public static void main( String[] args ) throws IOException {
+		
 		boolean peutContinuer = true;
 
 		String nomFicTest;
-		// On assume une lecture des données du clavier.
+		
 		BufferedReader fic =
 				new BufferedReader( new InputStreamReader( System.in ) );
 
@@ -33,6 +34,7 @@ public class Main {
 			fic = OutilsFichier.ouvrirFicTexteLecture( nomFicTest );
 
 			if ( fic == null ) {
+				
 				peutContinuer = false;
 			}
 		}
@@ -44,13 +46,14 @@ public class Main {
 			OutilsLecture.type = type;
 
 			/**
-			 * Une instance de la classe PrincipalTp5 permet de gérer
-			 * l'évaluation d'expressions arithmétiques et des sudokus.
+			 * Une instance de la classe PrincipalTp5 permet de gÃ©rer
+			 * l'Ã©valuation d'expressions arithmÃ©tiques et des sudokus.
 			 */
 
 			new PrincipalTP1P2();
 
 		} else {
+			
 			System.out.println( "\nImpossible de tester le programme." );
 		}
 	}

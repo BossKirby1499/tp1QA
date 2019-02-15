@@ -32,8 +32,10 @@ public class Client {
 			
 			total += produits[i].getPrix()*produits[i].getQte();
 		}
+		
 		System.out.println(this.nom+" "+total+"$ ");
 	}
+	
 	public String getNom(){
 		
 		return this.nom;

@@ -18,15 +18,18 @@ public class PrincipalTP1P2 implements OutilsConstantes{
 		ligne = outilsjava.OutilsLecture.lireChaine("");
 		
 		if (ligne == "Clients :") {
+			
 			ligne = outilsjava.OutilsLecture.lireChaine("");
 		}
 		
 		while (ligne != "Plats:") {
 			
 			try {
+				
 			Client ctemp = new Client("ligne");
 			
 			listeClient.add(ctemp);
+				
 			} catch (Exception e) {
 
 			}
@@ -35,11 +38,13 @@ public class PrincipalTP1P2 implements OutilsConstantes{
 		}
 		
 		if ( ligne == "Plats :" ) {
+			
 			ligne = outilsjava.OutilsLecture.lireChaine("");
 			
 
 		}
 		while (ligne != "Commandes:") {
+			
 			String[] ligneProduti = ligne.split(" ");
 		
 			Produit produit = new produit(ligneProduti[0],Double.parseDouble(ligneProduti[1]));
@@ -49,18 +54,24 @@ public class PrincipalTP1P2 implements OutilsConstantes{
 			ligne = outilsjava.OutilsLecture.lireChaine("");
 		}
 		for (Client c : listeClient) {
+			
 			c.ajouterProduits(listeProduit);
 		}
 		
 		ligne = outilsjava.OutilsLecture.lireChaine("");
 		
 		while (ligne != "Fin") {
+			
 			String[] ligneProduit = ligne.split(" ");
 			
 			for (Client c : listeClient) {
+				
 				if(c.getNom == ligneProduit[0]) {
+					
 					for (Produit p : listeProduit) {
+						
 						if(p.getnom == ligneProduit[1]) {
+							
 							p.setQte = Integer.parseInt(tableauliste[2]);
 						}
 					}
@@ -70,9 +81,11 @@ public class PrincipalTP1P2 implements OutilsConstantes{
 			
 			ligne = outilsjava.OutilsLecture.lireChaine("");
 		}
+		
 		System.out.println("Factures");
 		
 		for (Client c : listeClient) {
+			
 			c.calculerPrix();
 		}
 		

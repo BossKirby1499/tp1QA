@@ -10,26 +10,22 @@ public class PrincipalTP1P2 implements OutilsConstantes{
 		
 		String ligne;
 		
-		System.out.println("Bienvenu chez Barette !");
+		System.out.println("\nBienvenue chez Barette !");
 
 		ArrayList<Client> listeClient = new ArrayList<>();
-		ArrayList<Produit> listeProduit = new ArrayList<>();
 		
 		ligne = outilsjava.OutilsLecture.lireChaine("");
 		
-		if (ligne == "Clients :") {
-			
+		if (ligne.equals("Clients :")) {
 			ligne = outilsjava.OutilsLecture.lireChaine("");
 		}
 		
-		while (ligne != "Plats:") {
+		while (!ligne.equals("Plats :")) {
 			
 			try {
-				
-			Client ctemp = new Client("ligne");
+			Client ctemp = new Client(ligne);
 			
 			listeClient.add(ctemp);
-				
 			} catch (Exception e) {
 
 			}
@@ -37,42 +33,41 @@ public class PrincipalTP1P2 implements OutilsConstantes{
 			ligne = outilsjava.OutilsLecture.lireChaine("");
 		}
 		
-		if ( ligne == "Plats :" ) {
-			
+		if ( ligne.equals("Plats :")) {
 			ligne = outilsjava.OutilsLecture.lireChaine("");
 			
 
 		}
-		while (ligne != "Commandes:") {
-			
+		while (!ligne.equals("Commandes :")) {
+			try {
 			String[] ligneProduti = ligne.split(" ");
 		
-			Produit produit = new produit(ligneProduti[0],Double.parseDouble(ligneProduti[1]));
+
+
+			for (Client c : listeClient) {
+				Produit produit = new Produit(ligneProduti[0],Double.parseDouble(ligneProduti[1]));
+				c.ajouterProduit(produit);
+			}
 			
-			listeProduit.add(produit);
+			} catch (Exception e) {
+
+			}
 			
 			ligne = outilsjava.OutilsLecture.lireChaine("");
-		}
-		for (Client c : listeClient) {
 			
-			c.ajouterProduits(listeProduit);
 		}
+
 		
 		ligne = outilsjava.OutilsLecture.lireChaine("");
 		
-		while (ligne != "Fin") {
-			
+		while (!ligne.equals("Fin")) {
 			String[] ligneProduit = ligne.split(" ");
 			
 			for (Client c : listeClient) {
-				
-				if(c.getNom == ligneProduit[0]) {
-					
-					for (Produit p : listeProduit) {
-						
-						if(p.getnom == ligneProduit[1]) {
-							
-							p.setQte = Integer.parseInt(tableauliste[2]);
+				if(c.getNom().equals(ligneProduit[0])) {
+					for (Produit p : c.listeProduit) {
+						if(p.getNom().equals(ligneProduit[1])) {
+							p.setQte(Integer.parseInt(ligneProduit[2]));
 						}
 					}
 				}
@@ -81,11 +76,9 @@ public class PrincipalTP1P2 implements OutilsConstantes{
 			
 			ligne = outilsjava.OutilsLecture.lireChaine("");
 		}
-		
-		System.out.println("Factures");
+		System.out.println("Factures:");
 		
 		for (Client c : listeClient) {
-			
 			c.calculerPrix();
 		}
 		
